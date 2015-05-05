@@ -7,7 +7,6 @@
     <artifactId>mms-repo</artifactId>
     <version>2.0</version>
     <name>view-repo AMP project</name>
-    <packaging>amp</packaging>
     <description>Manages the lifecycle of the view-repo AMP (Alfresco Module Package)</description>
 
     <parent>
@@ -16,19 +15,7 @@
         <version>1.1.1</version>
     </parent>
 
-  <distributionManagement>
-      <!-- use mvn -U deploy -DgeneratePom=true -Dpackaging=jar  -->
-      <repository>
-          <id>artifactory</id>
-          <name>releases</name>
-          <url>http://europambee-build.jpl.nasa.gov:8082/artifactory/libs-release-local</url>
-      </repository>
-      <snapshotRepository>
-          <id>artifactory</id>
-          <name>snapshots</name>
-          <url>http://europambee-build.jpl.nasa.gov:8082/artifactory/libs-snapshot-local</url>
-      </snapshotRepository>
-  </distributionManagement>
+  
 
     <!-- 
        | SDK properties have sensible defaults in the SDK parent,
@@ -60,6 +47,14 @@
     <profiles>
         <profile>
             <id>mms-dev</id>
+            <distributionManagement>
+		      <!-- use mvn -U deploy -DgeneratePom=true -Dpackaging=jar  -->
+		      <repository>
+		          <id>lib</id>
+		          <name>local build</name>
+		          <url>file://${user.home}/.m2</url>
+		      </repository>
+		  </distributionManagement>
             <dependencies>
 	        <dependency>
 	            <groupId>gov.nasa.jpl.ae</groupId>
@@ -78,7 +73,7 @@
 	            <systemPath>${project.basedir}/src/main/amp/web/WEB-INF/lib/sysml.jar</systemPath>
 	        </dependency>
 	        <dependency>
-	            <groupId>mbee_util</groupId>
+	            <groupId>gov.nasa.jpl.mbee.util</groupId>
 	            <artifactId>mbee_util</artifactId>
 	            <version>1.0</version>
 	            <scope>system</scope>
@@ -94,9 +89,12 @@
 	            <systemPath>${project.basedir}/src/main/amp/web/WEB-INF/lib/kexpparser.jar</systemPath>
 	        </dependency>
 	        <dependency>
-                    <groupId>gov.nasa.jpl.mbee.docbook</groupId>
-                    <artifactId>docbook</artifactId>
-                    <version>0.0.1</version>
+	        		<groupId>docbook</groupId>
+	        		<artifactId>docbook</artifactId>
+	        		<version>0.0.1</version>
+                    <scope>system</scope>
+	            	<type>jar</type>
+	            	<systemPath>${project.basedir}/lib/docbook.jar</systemPath>
             </dependency>
             </dependencies>
             <properties>
@@ -294,15 +292,10 @@
         -->
     <repositories>
         <repository>
-              <id>artifactory-snapshots</id>
-              <name>snapshots</name>
-              <url>http://europambee-build.jpl.nasa.gov:8082/artifactory/libs-snapshot-local</url>
-        </repository>
-        <repository>
-              <id>artifactory-releases</id>
-              <name>releases</name>
-              <url>http://europambee-build.jpl.nasa.gov:8082/artifactory/libs-release-local</url>
-        </repository>
+			<id>local-repository</id>
+			<name>local</name>
+			<url>file://${user.home}/.m2/repository</url>
+		</repository>
         <repository>
             <id>alfresco-public</id>
             <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
@@ -632,4 +625,5 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<packaging>amp</packaging>
 </project>
