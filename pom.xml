@@ -57,10 +57,10 @@
     <maven.test.skip>false</maven.test.skip>
     <mbee.version>2.1.0-SNAPSHOT</mbee.version>
     <!-- properties for JMS and Rest server urls -->
-    <jms.uri>tcp://a5462215.ca.boeing.com:61616</jms.uri>
-    <rest.uri>http://a5462259.ca.boeing.com:8121/PublishMessageRestful</rest.uri>
-    <!-- <jms.uri>tcp://localhost:61616</jms.uri> -->
-    <!-- <rest.uri>https://orasoa-dev07.jpl.nasa.gov:8121/PublishMessageRestful</rest.uri> -->
+    <jms_uri>tcp://a5462215.ca.boeing.com:61616</jms_uri>
+    <rest_uri>http://a5462259.ca.boeing.com:8121/PublishMessageRestful</rest_uri>
+    <!-- <jms_uri>tcp://localhost:61616</jms_uri> -->
+    <!-- <rest_uri>https://orasoa-dev07.jpl.nasa.gov:8121/PublishMessageRestful</rest_uri> -->
   </properties>
 
   <!-- profiles for specific dependencies for developers or users -->
@@ -83,6 +83,16 @@
         <alfresco.client.war.version>4.2.4</alfresco.client.war.version>
         <alfrescoEditionName>enterprise</alfrescoEditionName>
         <packageName>mms-repo-enterprise</packageName>
+      </properties>
+    </profile>
+    <!-- Enterprise Eng Fix -->
+    <profile>
+      <id>enterpriseEngFix</id>
+      <properties>
+        <alfresco.version>4.2.4</alfresco.version>
+        <alfresco.client.war.version>4.2.4</alfresco.client.war.version>
+        <alfrescoEditionName>enterpriseEngFix</alfrescoEditionName>
+        <packageName>mms-repo-enterpriseengfix</packageName>
       </properties>
     </profile>
     <!-- -->
@@ -254,12 +264,6 @@
       <version>1.5.11</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>3.0.6.RELEASE</version>
-      <scope>provided</scope>
-    </dependency>
     <!-- apache chemistry opencmis CLIENT -->
     <dependency>
       <groupId>org.apache.chemistry.opencmis</groupId>
@@ -271,12 +275,6 @@
     <dependency>
       <groupId>org.apache.chemistry.opencmis</groupId>
       <artifactId>chemistry-opencmis-server-support</artifactId>
-      <version>0.8.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.chemistry.opencmis</groupId>
-      <artifactId>chemistry-opencmis-commons-impl</artifactId>
       <version>0.8.0</version>
       <scope>provided</scope>
     </dependency>
@@ -399,7 +397,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
-          <!-- <verbose>true</verbose> -->
+          <verbose>false</verbose>
           <source>1.7</source>
           <target>1.7</target>
         </configuration>

@@ -123,9 +123,9 @@ limitations under the License.
 
   <!-- Definitions for sending active sync messages -->
   <bean id="jmsConnection" class="gov.nasa.jpl.view_repo.connections.JmsConnection">
-    <property name="uri" value="${jms.uri}" />
+    <property name="uri" value="${jms_uri}" />
   </bean>
   <bean id="restConnection" class="gov.nasa.jpl.view_repo.connections.RestPostConnection">
-    <property name="uri" value="${rest.uri}" />
+    <property name="uri" value="${rest_uri}" />
   </bean>
 </beans>
