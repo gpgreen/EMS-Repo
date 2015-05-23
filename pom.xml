@@ -84,6 +84,20 @@
         <alfrescoEditionName>enterprise</alfrescoEditionName>
         <packageName>mms-repo-enterprise</packageName>
       </properties>
+      <repositories>
+        <repository>
+          <id>alfresco-private-repository</id>
+          <url>https://artifacts.alfresco.com/nexus/content/groups/private</url>
+        </repository>
+      </repositories>
+      <dependencies>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <version>1.7.5</version>
+          <scope>compile</scope>
+        </dependency>
+      </dependencies>
     </profile>
     <!-- Enterprise Eng Fix -->
     <profile>
@@ -94,6 +108,12 @@
         <alfrescoEditionName>enterpriseEngFix</alfrescoEditionName>
         <packageName>mms-repo-enterpriseengfix</packageName>
       </properties>
+      <repositories>
+        <repository>
+          <id>alfresco-private-repository</id>
+          <url>https://artifacts.alfresco.com/nexus/content/groups/private</url>
+        </repository>
+      </repositories>
     </profile>
     <!-- -->
     <profile>
@@ -262,7 +282,7 @@
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
       <version>1.5.11</version>
-      <scope>provided</scope>
+      <scope>compile</scope>
     </dependency>
     <!-- apache chemistry opencmis CLIENT -->
     <dependency>
