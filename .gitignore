@@ -70,5 +70,3 @@ activemq-data/
 /xpp3/
 /runserver.last.out
 /runserver.out
-# kde litters these around
-.DS_Store
