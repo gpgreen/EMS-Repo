@@ -53,14 +53,14 @@
     <!-- we override this in the profiles below -->
     <!-- <alfresco.client.war.version>4.2.e</alfresco.client.war.version> -->
     <!-- This controls which properties will be picked in src/test/properties for embedded run -->
-    <env>boeing</env>
+    <env>local</env>
     <maven.test.skip>false</maven.test.skip>
     <mbee.version>2.1.0-SNAPSHOT</mbee.version>
-    <!-- properties for JMS and Rest server urls -->
-    <jms_uri>tcp://a5462215.ca.boeing.com:61616</jms_uri>
-    <rest_uri>http://a5462259.ca.boeing.com:8121/PublishMessageRestful</rest_uri>
-    <!-- <jms_uri>tcp://localhost:61616</jms_uri> -->
-    <!-- <rest_uri>https://orasoa-dev07.jpl.nasa.gov:8121/PublishMessageRestful</rest_uri> -->
+    <!-- properties for JMS and Rest server urls 
+         we put them here so that maven can rewrite the variables
+         in the module context files -->
+    <jms_uri>tcp://localhost:61616</jms_uri>
+    <rest_uri>https://orasoa-dev07.jpl.nasa.gov:8121/PublishMessageRestful</rest_uri>
   </properties>
 
   <!-- profiles for specific dependencies for developers or users -->
